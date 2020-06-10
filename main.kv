@@ -1,0 +1,59 @@
+MDBottomNavigation
+    MDBottomNavigationItem
+        text:'Live'
+        LiveCases:
+            search_input: searchinput
+            MDTextField:
+                id: searchinput
+                pos_hint:{'top':.85,'left':1}
+                size_hint: .6,.1
+                hint_text:'Enter a valid country'
+                helper_text:'No Shortcuts please'
+                helper_text_mode: 'persistent'
+                multiline: False
+            MDRaisedButton:
+                pos_hint:{'top':.85,'right':1}
+                size_hint: .4,.08
+                text:'Search'
+                on_release:
+                    self.parent.search()
+            Image:
+                source:'bacteria.png'
+                pos_hint:{'top':.55,'right':1}
+                size_hint: .3,.1
+
+            Label:
+                text:str(self.parent.location)
+                pos_hint:{'top':.75,'right':1}
+                size_hint: 1,.1
+                font_size:30
+                color:1,0,1,1
+
+            # confirmed
+            Label:
+                text: "Confirmed:    " +  str(self.parent.confirmed)
+                pos_hint:{'top':.55,'left':.85}
+                size_hint: 1,.1
+                font_size:25
+                color:0,1,1,1
+
+            # deaths
+            Label:
+                text: "Deaths:    " +  str(self.parent.deaths)
+                pos_hint:{'top':.45,'left':.85}
+                size_hint: 1,.1
+                font_size:25
+                color:1,0,0,1
+
+            # recovered
+            Label:
+                text: "Recovered:    " +  str(self.parent.recovered)
+                pos_hint:{'top':.35,'left':.85}
+                size_hint: 1,.1
+                font_size:25
+                color:0,1,0,1
+
+
+
+    MDBottomNavigationItem
+        text:'World'

@@ -7,23 +7,26 @@ MDBottomNavigation
                 id: searchinput
                 pos_hint:{'top':.85,'left':1}
                 size_hint: .6,.1
-                hint_text:'Enter a valid country'
-                helper_text:'No Shortcuts please'
-                helper_text_mode: 'persistent'
+                hint_text:'Enter a valid Country'
+                helper_text:'No Shortcuts'
+                helper_text_mode:'persistent'
                 multiline: False
+
             MDRaisedButton:
                 pos_hint:{'top':.85,'right':1}
                 size_hint: .4,.08
                 text:'Search'
                 on_release:
                     self.parent.search()
+
             Image:
                 source:'bacteria.png'
                 pos_hint:{'top':.55,'right':1}
                 size_hint: .3,.1
 
+            # location
             Label:
-                text:str(self.parent.location)
+                text: str(self.parent.location)
                 pos_hint:{'top':.75,'right':1}
                 size_hint: 1,.1
                 font_size:30
@@ -31,29 +34,72 @@ MDBottomNavigation
 
             # confirmed
             Label:
-                text: "Confirmed:    " +  str(self.parent.confirmed)
-                pos_hint:{'top':.55,'left':.85}
+                text: "Confirmed:   " + str(self.parent.confirmed)
+                pos_hint:{'top':.55,'right':1}
                 size_hint: 1,.1
                 font_size:25
                 color:0,1,1,1
 
             # deaths
             Label:
-                text: "Deaths:    " +  str(self.parent.deaths)
-                pos_hint:{'top':.45,'left':.85}
+                text: "Deaths:   " + str(self.parent.deaths)
+                pos_hint:{'top':.45,'right':1}
                 size_hint: 1,.1
                 font_size:25
                 color:1,0,0,1
 
             # recovered
             Label:
-                text: "Recovered:    " +  str(self.parent.recovered)
-                pos_hint:{'top':.35,'left':.85}
+                text: "Recovered:   " + str(self.parent.recovered)
+                pos_hint:{'top':.35,'right':1}
                 size_hint: 1,.1
                 font_size:25
                 color:0,1,0,1
 
 
-
     MDBottomNavigationItem
         text:'World'
+        name: 'screen2'
+        WorldCases:
+            MDRaisedButton:
+                pos_hint:{'top':1,'right':1}
+                size_hint: 1,.1
+                text:'Search for world cases'
+                on_release:
+                    self.parent.search_world()
+            Label:
+                text:"Search for World Cases"
+                pos_hint:{'top':8,'right':1}
+                size_hint: 1,.1
+                font_size:30
+
+            #confirmed
+            Label:
+                text:'Confirmed:        ' + str(self.parent.confirmed)
+                pos_hint:{'top':.55,'left':1}
+                size_hint: 1,.1
+                font_size:25
+                color:0,1,1,1
+
+            Label:
+                text: str(self.parent.date)
+                pos_hint:{'top':.65,'left':1}
+                size_hint: 1,.1
+                font_size:25
+            #deaths
+            Label:
+                text:'Deaths:        ' + str(self.parent.deaths)
+                pos_hint:{'top':.45,'left':1}
+                size_hint: 1,.1
+                font_size:25
+                color:1,0,0,1
+
+            #Recovered
+            Label:
+                text:'Recovered:        ' + str(self.parent.recovered)
+                pos_hint:{'top':.35,'left':1}
+                size_hint: 1,.1
+                font_size:25
+                color:0,1,0,1
+
+
